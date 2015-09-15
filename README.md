@@ -23,7 +23,7 @@
 
 在执行run-android 时需要用的配置参数
 
-Gradle中配置的参数必须在sdk目录中安装
+Gradle中配置的API Level 必须在sdk目录中是已安装的版本
 
 
 *  ***compileSdkVersion***	
@@ -63,7 +63,7 @@ Gradle中配置的参数必须在sdk目录中安装
   compile ''
   }
   这个的作用主要是导入在android程序所用的类库
-  上面的错误是com.android.support:appcompat-V7导致的
+  上面的错误是build.gradle文件中配置的com.android.support:appcompat-V7版本号找不到导致的
   解决：查看Android/sdk/extras/android/support/v7目录修改为已存在的版本号
   
   *	***Execution failed for task ':app:installDebug'.
