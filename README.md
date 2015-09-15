@@ -40,7 +40,7 @@ Gradle中配置的参数必须在sdk目录中安装
 
 ##3 执行run-android时碰到的问题
 
-	第一次执行run-android是一个漫长的过程，主要是需要下载gradle之类的执行文件
+	第一次执行run-android是一个漫长的过程，主要是需要下载gradle之类的执行文件，如果没有安装sdk或者配置ANDROID_HOME有可能会碰到一下问题。
 
 *	**A problem occurred configuring project ':app'.
 	failed to find target with hash string 'android-23' in: /Users/zbmobi/DevelopTools/Android/sdk**
