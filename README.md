@@ -38,7 +38,9 @@ Gradle中配置的参数必须在sdk目录中安装
 	在编译程序是指定一个API Level，我一般配置为跟 compileSdkVersion一致。
 	
 
-##执行run-android时碰到的问题
+##3 执行run-android时碰到的问题
+
+	第一次执行run-android是一个漫长的过程，主要是需要下载gradle之类的执行文件
 
 *	**A problem occurred configuring project ':app'.
 	failed to find target with hash string 'android-23' in: /Users/zbmobi/DevelopTools/Android/sdk**
@@ -46,18 +48,17 @@ Gradle中配置的参数必须在sdk目录中安装
 	在sdk/platforms目录中找不到gradle配置中compiletargetSdkVersion对应的androidsdk版本号
 	解决：修改compileSdkVersion和targetSdkVersion的对应版本号
 	如图
-*	*** What went wrong:
-A problem occurred configuring project ':app'.
+	
+*	***A problem occurred configuring project ':app'.
  failed to find Build Tools revision 23.0.1***
  
  在sdk/build-tools目录中找不到gradle配置的buildToolsVersion对应的版本号
 解决：查看build-tools目录，然后修改为已存在的版本号
 
-*	***What went wrong:
-A problem occurred configuring project ':app'. Could not resolve all dependencies for configuration ':app:_debugCompile'.
+*	***A problem occurred configuring project ':app'. Could not resolve all dependencies for configuration ':app:_debugCompile'.
    Could not find com.android.support:appcompat-v7:23.0.0.***
    
-   在build.gralde文件里 
+在build.gralde文件里 
   dependencies{
   compile ''
   }
@@ -65,5 +66,13 @@ A problem occurred configuring project ':app'. Could not resolve all dependencie
   上面的错误是com.android.support:appcompat-V7导致的
   解决：查看Android/sdk/extras/android/support/v7目录修改为已存在的版本号
   
+  *	***Execution failed for task ':app:installDebug'.
+com.android.builder.testing.api.DeviceException: No connected devices***
 
+	找不到连接电脑的设备
+解决：连接真机或者模拟器，这里推荐模拟器，在调试的时候方便一些，这里推荐genymotion
+	
+	
+	
+	一般解决上面问题，程序应该执行成功了，碰到后续问题再补充。
   
