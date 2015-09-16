@@ -1,4 +1,4 @@
-#React Native Andoird的配置说明-2015-09-16修改
+#React Native Android的配置说明-2015-09-16修改
 
 ##1 关于Android SDK
 
