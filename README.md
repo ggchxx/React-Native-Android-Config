@@ -44,6 +44,7 @@ Gradle中配置的API Level 必须在sdk目录中是已安装的版本
 	3.在/androiddemo/路径下执行react-native start命令，待执行完毕以后再执行以下命令
 	curl -k 'http://localhost:8081/index.android.bundle' > android/app/src/main/assets/index.android.bundle
 	该命令的意思是将index.android.bundle下载并保存到assets资源文件夹中
+	这句命令是重点，如果assets目录中不存在该文件，则打包的apk在执行时显示空白。
 	4.打包的apk在未签名的情况下,在手机中（非root）是不允许安装的，所以需要添加gradle的android keystore配置，在build.gradle文件中，具体配置如下
 	  //签名
     signingConfigs{
