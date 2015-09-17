@@ -122,7 +122,7 @@ com.android.builder.testing.api.DeviceException: No connected devices***
 	找不到连接电脑的设备
 解决：连接真机或者模拟器，这里推荐模拟器，在调试的时候方便一些，这里推荐genymotion
 
-* ***在run-android过程中有时配置了ANDOIRD_HOME会碰到依然提示 sdk目录找不到或者不存在的问题。***
+* *** SDK location not found. Define location with sdk.dir in the local.properties file or with an ANDROID_HOME environment variable.在run-android过程中有时配置了ANDOIRD_HOME会碰到依然提示 sdk目录找不到或者不存在的问题。***
  
  	解决：可以在目录/android/中添加local.properties配置文件，文件内容为：sdk.dir=你的sdk路径，例如sdk.dir=/Users/****/DevelopTools/Android/sdk	
 	
