@@ -1,4 +1,7 @@
-#React Native Android的配置说明-2015-09-16修改
+#React Native Android的配置说明-2015-09-17修改
+
+###如果文档中有错误的地方，可以提交issues或者联系QQ70343281进行修改
+
 
 ##1 关于Android SDK
 
@@ -64,7 +67,25 @@ Gradle中配置的API Level 必须在sdk目录中是已安装的版本
     }
     注意一下配置顺序
     5.在androiddemo/android/目录中执行gradle assembleRelease命令，打包后的文件在	androiddemoi/android/app/build/outputs/apk目录中，例如app-release.apk。如果打包碰到	问题可以先执行 gradle clean 清理一下。
-    6.将apk复制到手机中安装运行
+    6.将apk复制到手机中安装运行 
+    
+   * 2015-09-17添加
+   
+   		在打包文件时需要注意curl 下载的Bundle文件要与Activity中配置的一致，而不是统一的index.android.bundle
+   		例如 Movies项目中，在Activity的OnCreate中
+   		
+   			mReactInstanceManager = ReactInstanceManager.builder()
+        		.setApplication(getApplication())
+        		.setBundleAssetName("[MoviesApp.android.bundle]()")
+        		.setJSMainModuleName("MoviesApp.android")
+        		.addPackage(new MainReactPackage())
+        		.setUseDeveloperSupport(true)
+        		.setInitialLifecycleState(LifecycleState.RESUMED)
+        		.build();
+        这个BundleAssetName的名字为MoviesApp.android.bundle，所以在添加bundle到assets目录时，需要改为
+        curl -k 'http://localhost:8081/MoviesApp.android.bundle' > android/app/src/main/assets/MoviesApp.android.bundle
+        
+	
 	
 
 ##附 执行run-android时碰到的问题
@@ -93,14 +114,17 @@ Gradle中配置的API Level 必须在sdk目录中是已安装的版本
   }
   这个的作用主要是导入在android程序所用的类库
   上面的错误是build.gradle文件中配置的com.android.support:appcompat-V7版本号找不到导致的
-  解决：查看/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/目录修改为已存在的版本号
+  解决：查看/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/目录修改为已存在的版本号,具体下载可以在[AndroidDevtools](http://www.androiddevtools.cn'AndroidDevtools')中下载『Android SDK Extras』和『Support Library』
   
   *	***Execution failed for task ':app:installDebug'.
 com.android.builder.testing.api.DeviceException: No connected devices***
 
 	找不到连接电脑的设备
 解决：连接真机或者模拟器，这里推荐模拟器，在调试的时候方便一些，这里推荐genymotion
-	
+
+ * ***在run-android过程中有时配置了ANDOIRD_HOME会碰到依然提示 sdk目录找不到或者不存在的问题。***
+ 
+ 	解决：可以在目录/android/中添加local.properties配置文件，文件内容为：sdk.dir=你的sdk路径，例如sdk.dir=/Users/****/DevelopTools/Android/sdk	
 	
 	
 	一般解决上面问题，程序应该执行成功了，碰到后续问题再补充。
