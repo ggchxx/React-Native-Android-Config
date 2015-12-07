@@ -1,6 +1,6 @@
 #React Native Android的配置说明-2015-09-17修改
 
-###如果文档中有错误的地方，可以提交issues或者联系QQ70343281进行修改
+###如果文档中有错误的地方，可以提交issues
 
 
 ##1 关于Android SDK
