@@ -83,7 +83,7 @@ Gradle中配置的API Level 必须在sdk目录中是已安装的版本
         		.setInitialLifecycleState(LifecycleState.RESUMED)
         		.build();
         这个BundleAssetName的名字为MoviesApp.android.bundle，所以在添加bundle到assets目录时，需要改为
-        curl -k 'http://localhost:8081/MoviesApp.android.bundle' > android/app/src/main/assets/MoviesApp.android.bundle
+       curl -k 'http://localhost:8081/index.android.bundle?platform=android' > android/app/src/main/assets/index.android.bundle
         
 	
 	
