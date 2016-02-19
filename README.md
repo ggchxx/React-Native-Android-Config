@@ -66,7 +66,8 @@ Gradle中配置的API Level 必须在sdk目录中是已安装的版本
         }
     }
     注意一下配置顺序
-    5.在androiddemo/android/目录中执行gradle assembleRelease命令，打包后的文件在	androiddemoi/android/app/build/outputs/apk目录中，例如app-release.apk。如果打包碰到	问题可以先执行 gradle clean 清理一下。
+    为了简化签名操作，可以安装envirs-react-native-cli命令行工具，该工具将指引你生成一个签名文件并自动修改build.gradle文件中相应内容。具体可以参考：https://github.com/Spikef/envirs-react-native-cli
+    5.在androiddemo/android/app目录中执行../gradlew assembleRelease命令，打包后的文件在	androiddemoi/android/app/build/outputs/apk目录中，例如app-release.apk。如果打包碰到	问题可以先执行 gradle clean 清理一下。
     6.将apk复制到手机中安装运行 
     
    * 2015-09-17添加
